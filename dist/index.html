@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Pomodoro Clock</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<script id="session-template" type="x-template">
+  <div class="session">
+    <button class="delete-session" @click="$emit('delete')">x</button>
+    <input class="session-title" v-model="session.title">
+    <div class="counter">
+      <button class="minus" @click="decrement">-</button>
+      <span id="session-length">{{ session.length }}</span>
+      <button class="plus" @click="increment">+</button>
+    </div>
+    <div class="unit">min</div>
+  </div>
+</script>
+
+<div id="app">
+  <div class="timer-container" @click="isRunning ? stop() : start()">
+    <input class="current-session" v-model="currentSession.title">
+    <div class="timer">{{ formattedTimer }}</div>
+    <span class="fill" :style="{ height: fillHeight }"></span>
+  </div>
+
+  <button class="add-session" @click="newSession" title="Add session">+</button>
+
+  <div class="sessions-container">
+    <session v-for="session in sessions" :session="session" @delete="deleteSession(session)"></session>
+  </div>
+
+  <div class="copyright">Mathew Hany &copy; 2017</div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

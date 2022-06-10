@@ -1,0 +1,28 @@
+<script id="session-template" type="x-template">
+  <div class="session">
+    <button class="delete-session" @click="$emit('delete')">x</button>
+    <input class="session-title" v-model="session.title">
+    <div class="counter">
+      <button class="minus" @click="decrement">-</button>
+      <span id="session-length">{{ session.length }}</span>
+      <button class="plus" @click="increment">+</button>
+    </div>
+    <div class="unit">min</div>
+  </div>
+</script>
+
+<div id="app">
+  <div class="timer-container" @click="isRunning ? stop() : start()">
+    <input class="current-session" v-model="currentSession.title">
+    <div class="timer">{{ formattedTimer }}</div>
+    <span class="fill" :style="{ height: fillHeight }"></span>
+  </div>
+
+  <button class="add-session" @click="newSession" title="Add session">+</button>
+
+  <div class="sessions-container">
+    <session v-for="session in sessions" :session="session" @delete="deleteSession(session)"></session>
+  </div>
+
+  <div class="copyright">Mathew Hany &copy; 2017</div>
+</div>

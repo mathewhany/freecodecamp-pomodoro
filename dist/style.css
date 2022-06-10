@@ -1,0 +1,121 @@
+body {
+  color: #fff;
+  background: #172121;
+}
+
+#app {
+  text-align: center;
+  margin: 45px auto;
+  font-family: "Lato";
+  font-size: 125%;
+}
+
+button, input {
+  font-family: inherit;
+}
+
+button {
+  background: #2c3f3f;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+}
+button:hover {
+  background: #364e4e;
+}
+
+.add-session {
+  height: 50px;
+  width: 50px;
+}
+
+.sessions-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.sessions-container .session {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10%;
+  background: #131b1b;
+  line-height: 36px;
+}
+.sessions-container .session .delete-session {
+  margin: auto;
+  display: block;
+  width: 25px;
+  height: 25px;
+  background: #f47270;
+}
+.sessions-container .session .delete-session:hover {
+  background: #f68988;
+}
+.sessions-container .session .session-title {
+  font-family: "Lato";
+  color: #fff;
+  border: none;
+  outline: none;
+  background: transparent;
+  text-align: center;
+}
+.sessions-container .session .counter .minus, .sessions-container .session .counter .plus {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin: auto 15px;
+}
+
+.timer-container {
+  cursor: pointer;
+  margin: 2.5em auto;
+  width: 150px;
+  height: 150px;
+  background: #131b1b;
+  padding: 2em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 99;
+  overflow: hidden;
+}
+.timer-container .timer {
+  font-size: 200%;
+}
+.timer-container .current-session {
+  background: transparent;
+  color: #fff;
+  font-family: "Lato";
+  border: none;
+  text-align: center;
+  outline: none;
+}
+.timer-container::after {
+  content: "";
+}
+.timer-container .fill {
+  background: #f47270;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0%;
+  width: 100%;
+  z-index: -1;
+  transition: 1s linear;
+}
+
+.copyright {
+  position: fixed;
+  background: #2c3f3f;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  right: 0;
+  bottom: 0;
+}
